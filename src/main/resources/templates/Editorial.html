@@ -2,8 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head>
-    <title>Editorial</title>
+    <title>Editoriales</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/webjars/font-awesome/css/all.css">
@@ -11,28 +12,32 @@
     <script src="/webjars/popper.js/umd/popper.min.js"></script>
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
+<style>
+    table, th, td {
+        border: 3px solid black;
+    }
+</style>
 <body>
-<a th:href="@{/agregar-editorial}">Agregar Editorial</a>
-<div th:if="${editoriales != null }">
-    <table border="1">
-        <tr>
-            <th>Nombre</th>
-            <th>Ubicacion</th>
-            <th>Direccion</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
+<table style="width:100%">
+    <a th:href="@{/agregar-editorial}">Agregar Editorial</a>
+    <div th:if="${editoriales != null }">
+
+        <th>Nombre</th>
+        <th>Ubicacion</th>
+        <th>Direccion</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
         </tr>
         <tr th:each="editorial : ${editoriales}">
             <td th:text="${editorial.nombre}">Mostrar Nombre</td>
-            <td th:text="${editorial.ubicacion}">Mostrar ubicacion</td>
+            <td th:text="${editorial.ubicacion}">Mostrar Ubicacion</td>
             <td th:text="${editorial.direccion}">Mostrar Direccion</td>
             <td><a th:href="@{/editar-editorial/} + ${editorial.id}"/>editar</td>
             <td><a th:href="@{/page/editorial/eliminar/} + ${editorial.id}"/>eliminar</td>
         </tr>
-    </table>
-</div>
+    </div>
+</table>
 <div th:if="${editoriales == null or editoriales.empty}">
 </div>
-
 </body>
 </html>

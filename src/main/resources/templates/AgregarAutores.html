@@ -12,7 +12,12 @@
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Agregar datos a la autor</h1>
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="#">
+        <img src="..static/img/E.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        Agregar datos al Autor
+    </a>
+</nav>
 <a th:href="@{/autores}">Regresar</a>
 <form th:action="@{/page/autor/guardar}" method="post" th:object="${autor}">
     <br/>

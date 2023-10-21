@@ -12,7 +12,12 @@
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Agregar datos a la editorial</h1>
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="#">
+        <img src="..static/img/E.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        Agregar datos a la Editorial
+    </a>
+</nav>
 <a th:href="@{/editoriales}">Regresar</a>
 <form th:action="@{/page/editorial/guardar}" method="post" th:object="${editorial}">
     <br/>
