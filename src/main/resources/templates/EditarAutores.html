@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <title>Agregar Categoria</title>
+    <title>Agregar Autores</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/webjars/font-awesome/css/all.css">
@@ -12,13 +12,19 @@
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Agregar datos a la categoria</h1>
-<a th:href="@{/categorias}">Regresar</a>
-<form th:action="@{/page/categoria/editar}" method="post" th:object="${categoria}">
+<h1>Agregar datos a la autores</h1>
+<a th:href="@{/autores}">Regresar</a>
+<form th:action="@{/page/autor/editar}" method="post" th:object="${autor}">
     <br/>
-    <input type="hidden" name="idCategoria" th:field="*{id}"/>
+    <input type="hidden" name="idAutor" th:field="*{id}"/>
     <label for="nombre">Nombre:</label>
     <input type="text" name="nombre" th:field="*{nombre}"/>
+    <br/>
+    <label for="apellido">Apellido:</label>
+    <input type="text" name="apellido" th:field="*{apellido}"/>
+    <br/>
+    <label for="fechaDeNacimiento">FechaDeNacimiento:</label>
+    <input type="date" name="fechaDeNacimiento" th:field="*{fechaDeNacimiento}"/>
     <br/>
     <input type="submit" name="guardar" th:value="Guardar"/>
 </form>

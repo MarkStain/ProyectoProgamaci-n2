@@ -36,8 +36,11 @@ public class PageLibroServiceImpl implements PageLibroService {
 
     @Override
     public void editarLibro(Libro libro) {
+        libro.setEditorial(libro.getIdEditorial().getId());
+        libro.setAutor(libro.getIdAutor().getId());
+        libro.setCategoria(libro.getIdCategoria().getId());
         RestTemplate restTemplate = new RestTemplate();
-        restTemplate.put("http://localhost:8080/libros/" + libro.getId(), libro, Libro.class);
+        restTemplate.put("http://localhost:8080/libro/" + libro.getId(), libro, Libro.class);
     }
 
     @Override
