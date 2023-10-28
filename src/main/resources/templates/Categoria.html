@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <title>Categorias</title>
+
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/font-awesome/css/all.css">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/popper.js/umd/popper.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<style>
+    table, th, td {
+        border: 3px solid black;
+    }
+</style>
+<body>
+<table style="width:100%">
+    <a th:href="@{/agregar-categoria}">Agregar Categoria</a>
+    <div th:if="${categorias != null }">
+
+        <th>Nombre</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+        </tr>
+        <tr th:each="categoria : ${categorias}">
+            <td th:text="${categoria.nombre}">Mostrar Nombre</td>
+            <td><a th:href="@{/editar-categoria/} + ${categoria.id}"/>editar</td>
+            <td><a th:href="@{/page/categoria/eliminar/} + ${categoria.id}"/>eliminar</td>
+        </tr>
+    </div>
+</table>
+<div th:if="${categorias == null or categorias.empty}">
+</div>
+</body>
+</html>

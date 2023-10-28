@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Agregar Categoria</title>
+
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/font-awesome/css/all.css">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/popper.js/umd/popper.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1>Agregar datos a la categoria</h1>
+<a th:href="@{/categorias}">Regresar</a>
+<form th:action="@{/page/categoria/editar}" method="post" th:object="${categoria}">
+    <br/>
+    <input type="hidden" name="idCategoria" th:field="*{id}"/>
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" th:field="*{nombre}"/>
+    <br/>
+    <input type="submit" name="guardar" th:value="Guardar"/>
+</form>
+</body>
+</html>

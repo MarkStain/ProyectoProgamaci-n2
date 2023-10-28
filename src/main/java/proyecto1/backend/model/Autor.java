@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "autor")
-public class Autor {
+public class Autor implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idAutor", nullable = false)
@@ -25,4 +26,10 @@ public class Autor {
     @Column(name = "FechaDeNacimiento", nullable = false)
     private LocalDate fechaDeNacimiento;
 
+    public Autor(Integer id) {
+        this.id = id;
+    }
+    public Autor() {
+
+    }
 }

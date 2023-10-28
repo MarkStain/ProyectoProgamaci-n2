@@ -24,5 +24,10 @@ public class Editorial implements Serializable {
 
     @Column(name = "Direccion", nullable = false, length = 250)
     private String direccion;
+    public Editorial(Integer id) {
+        this.id = id;
+    }
+    public Editorial() {
 
+    }
 }

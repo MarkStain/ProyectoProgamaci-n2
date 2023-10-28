@@ -19,6 +19,7 @@ public class ControllerFrontEndAutores {
     @Autowired
     private PageAutorService pageAutorService;
 
+
     @GetMapping("/autores")
     public String autorIndex(Model model) {
         log.info("Obteniendo autores ");

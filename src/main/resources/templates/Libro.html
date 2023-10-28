@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <title>Editoriales</title>
+
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/font-awesome/css/all.css">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/popper.js/umd/popper.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<style>
+    table, th, td {
+        border: 3px solid black;
+    }
+</style>
+<body>
+<table style="width:100%">
+    <a th:href="@{/agregar-libro}">Agregar Libro</a>
+    <div th:if="${libros != null }">
+
+        <th>Nombre</th>
+        <th>AñoDeEdicion</th>
+        <th>Editorial</th>
+        <th>Autor</th>
+        <th>Paginas</th>
+        <th>Idioma</th>
+        <th>Categoria</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+        </tr>
+        <tr th:each="libro : ${libros}">
+            <td th:text="${libro.nombre}">Mostrar Nombre</td>
+            <td th:text="${libro.getAnoDeEdicion}">Mostrar AñoDeEdicion</td>
+            <td th:text="${libro.idEditorial.nombre}">Mostrar Editorial</td>
+            <td th:text="${libro.idAutor.nombre}">Mostrar Autor</td>
+            <td th:text="${libro.paginas}">Mostrar Paginas</td>
+            <td th:text="${libro.idioma}">Mostrar Idiomas</td>
+            <td th:text="${libro.idCategoria.nombre}">Mostrar Categoria</td>
+            <td><a th:href="@{/editar-libro/} + ${libro.id}"/>editar</td>
+            <td><a th:href="@{/page/libro/eliminar/} + ${libro.id}"/>eliminar</td>
+        </tr>
+    </div>
+</table>
+<div th:if="${libros == null or libros.empty}">
+</div>
+</body>
+</html>

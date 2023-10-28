@@ -36,8 +36,6 @@ public class EditorialServiceImpl implements EditorialService {
     public Editorial modify(Long editorialId, Editorial editorialNuevo) {
         Editorial editorialActual = editorialDao.findById(editorialId).stream().findFirst().orElse(null);
         if (editorialActual != null){
-            editorialActual.setDireccion(editorialNuevo.getDireccion());
-            editorialActual.setUbicacion(editorialNuevo.getUbicacion());
             editorialActual.setNombre(editorialNuevo.getNombre());
         }
         return editorialActual;

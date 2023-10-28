@@ -3,12 +3,10 @@ package proyecto1.frontend.service;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.client.RestTemplate;
-import proyecto1.backend.dto.EditorialList;
 import proyecto1.backend.model.Editorial;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class PageEditorialServiceImpl implements PageEditorialService {
